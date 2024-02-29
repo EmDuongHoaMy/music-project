@@ -1,12 +1,10 @@
 @extends('backend.user.bg')
 @section('user.main')
     <div class="ibox-content ">
+        <label for=""><h3>Danh sách thành viên</h3></label>
         {{-- Các chức năng --}}
         <nav class="navbar navbar-expand-sm">
             <ul class="navbar-nav">
-                <li class="nav-item me-5">
-                    <label for=""><h3>Danh sách thành viên</h3></label>
-                </li>
                 {{-- form tìm kiếm --}}
                 <li class="nav-item me-2">
                     <form class="d-flex" role="search" action="{{ route('user.index') }}">

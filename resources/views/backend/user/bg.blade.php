@@ -11,7 +11,7 @@
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #65940d;
+        background-color: #65676b;
         overflow-x: hidden;
         margin-top: 60px;
         display: inline;
@@ -44,7 +44,7 @@
         </li> 
       </ul>
 </div>
-<div style="margin-left: 180px;margin-top: 60px">
+<div style="margin-left: 180px;margin-top:80px">
   @yield('user.main')
 </div>
 @endsection

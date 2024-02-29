@@ -1,24 +1,29 @@
 <style>
   .bg-pink{
-    background-color: rgb(176, 17, 70);
+    background-color: rgb(101,103,107);
+  }
+
+  .martop{
+    margin-top: 12px;
   }
 </style>
 {{-- header navbar --}}
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-pink" style="height: 60px">
   <div class="container-fluid">
-    <a class="navbar-brand" style="font-size: 25px;font-family: Georgia, 'Times New Roman', Times, serif" href="{{ route('home') }}">PAGE</a>
+    {{-- <a class="navbar-brand" style="font-size: 25px;font-family: Georgia, 'Times New Roman', Times, serif" href="{{ route('home') }}">PAGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </button> --}}
+    <div class="collapse navbar-collapse " id="navbarSupportedContent" style="text-align: center">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('home') }}">
+            <i class="fas fa-home"></i>  Home</a>
         </li>
       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Data
+          Data
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{ route('author') }}">Author</a></li>
@@ -30,7 +35,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Actor
+          Actor
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{ route('iu') }}">IU</a></li>
@@ -42,11 +47,13 @@
 
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('item') }}">Preview</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('item') }}">
+          <li class="fa fa-book martop"></li>Preview</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('user.index') }}">User</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('user.index') }}">
+          <li class="fas fa-user martop"></li>User</a>
         </li>
 
       {{-- <button type="button" class="btn btn-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
@@ -63,10 +70,13 @@
         </li> --}}
       </ul>
 
-      <form class="d-flex" role="form" action="{{ route('auth.logout') }}">
+      {{-- <form class="d-flex" role="form" action="{{ route('auth.logout') }}">
         @csrf
         <button type="submit" class="btn btn-primary block full-width m-b mt-2">Logout</button>
-      </form>
+      </form> --}}
+      <a href="{{ route('auth.logout') }}" class="text-black-50">
+      <i class="fas fa-sign-out">Log out</i>
+      </a>
 
     </div>
   </div>
