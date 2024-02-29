@@ -13,6 +13,7 @@ use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\LoginMiddleware;
 use App\Http\Middleware\SignMiddleware;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,3 +107,7 @@ Route::post('/user/destroy/{id}',[
 Route::get('/admin/sign', [AuthController::class,'sign'])->name('auth.sign')->middleware(SignMiddleware::class);
 
 Route::post('/admin/sign', [AuthController::class,'signin'])->name('auth.signin');
+
+Route::get('product/index',[ProductsController::class,'index'])->name('product.index')->middleware(AuthMiddleware::class);
+
+Route::get('product/review/{id}',[ProductsController::class,'review'])->name('product.review')->middleware(AuthMiddleware::class);

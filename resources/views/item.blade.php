@@ -1,3 +1,10 @@
+<style>
+  .item{
+    padding-top: 120px;
+    padding-left: 20%;
+    width: 80%;
+  }
+</style>
 @extends('layout.base')
 @section('title')
   preview
@@ -18,10 +25,10 @@
   </nav>
 
   {{-- Thẻ hiển thị các item --}}
-  <div style="padding-top: 116px; width:75%;padding-left:400px">
+  <div class="item">
     @foreach ($preview as $item)
     <div id="section{{ $item->id }}" class="container-fluid bg-light text-dark" style="border-bottom:2px dotted black; ">
-     <h1 style="text-align: center;padding:20px;">{{ $item->ten }}</h1>
+     <h1 style="text-align: center;padding:40px;">{{ $item->ten }}</h1>
      {{-- Hiển thị tiểu sử thông qua thẻ php --}}
      <pre style="white-space: pre-line">
       <?php 
@@ -33,7 +40,7 @@
      <a href="{{ $item->mxh }}" class="text-white">Mạng Xã Hội : Instagram@ {{ $item->ten }}</a>
      <div style="text-align: center">
        <img src="{{ $item->hinh_anh }}" alt="" width="600px" height="450px" style="padding-top: 20px">
-       <p style="font-size: 18px;padding-top: 20px">Hình ảnh của {{ $item->ten }}</p>
+       <pre style="font-size: 18px;padding-top: 20px">Hình ảnh của {{ $item->ten }}</pre>
      </div>
    </div>
     @endforeach

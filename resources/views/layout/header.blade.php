@@ -56,6 +56,11 @@
           <li class="fas fa-user martop"></li>User</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('product.index') }}">
+          <li class="fas fa-product-hunt martop"></li>Products</a>
+        </li>
+
       {{-- <button type="button" class="btn btn-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
         Note
       </button> --}}
