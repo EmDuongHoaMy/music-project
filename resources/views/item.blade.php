@@ -18,20 +18,25 @@
   </nav>
 
   {{-- Thẻ hiển thị các item --}}
- @foreach ($preview as $item)
- <div id="section{{ $item->id }}" class="container-fluid bg-success text-white" style="padding:140px 20px;border:2px dotted black; ">
-  <h1 style="text-align: center">{{ $item->ten }}</h1>
-  {{-- Hiển thị tiểu sử thông qua thẻ php --}}
-  <?php 
-  $tt = str_replace('\n','<br>',$item->tieu_su);
-  echo $tt;
-  ?>
-  <a href="{{ $item->mxh }}" class="text-white">Mạng Xã Hội : Instagram@ {{ $item->ten }}</a>
-  <div style="text-align: center">
-    <img src="{{ $item->hinh_anh }}" alt="" width="600px" height="450px" style="padding-top: 20px">
-    <p style="font-size: 18px;padding-top: 20px">Hình ảnh của {{ $item->ten }}</p>
+  <div style="padding-top: 116px; width:75%;padding-left:400px">
+    @foreach ($preview as $item)
+    <div id="section{{ $item->id }}" class="container-fluid bg-light text-dark" style="border-bottom:2px dotted black; ">
+     <h1 style="text-align: center;padding:20px;">{{ $item->ten }}</h1>
+     {{-- Hiển thị tiểu sử thông qua thẻ php --}}
+     <pre style="white-space: pre-line">
+      <?php 
+     $tt = str_replace('\n','<br><p></p>',$item->tieu_su);
+     $tt = str_replace('\s','&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',$tt);
+     echo $tt;
+     ?>
+     </pre>
+     <a href="{{ $item->mxh }}" class="text-white">Mạng Xã Hội : Instagram@ {{ $item->ten }}</a>
+     <div style="text-align: center">
+       <img src="{{ $item->hinh_anh }}" alt="" width="600px" height="450px" style="padding-top: 20px">
+       <p style="font-size: 18px;padding-top: 20px">Hình ảnh của {{ $item->ten }}</p>
+     </div>
+   </div>
+    @endforeach
   </div>
-</div>
- @endforeach
 </div>
 @endsection
