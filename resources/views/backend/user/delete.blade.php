@@ -7,25 +7,25 @@
     @csrf
     <div class="form-group">
         <p><span class="text-danger"></span>Tên</p>
-        <input type="text" name="name" id="" placeholder="Name" value="{{ $user->name??'' }}" readonly>
+        <input type="text" name="name" id="" placeholder="Name" style="width: 100%" value="{{ $user->name??'' }}" readonly>
     </div>
     @if ($errors->has('name'))
     <span class="error-mess">* {{ $errors->first('name') }}</span>
     @endif
     <div class="form-group">
         <p><span class="text-danger"></span>Email</p>
-        <input type="text" name="email" id="" placeholder="Email" value="{{ $user->email??'' }}" readonly>   
+        <input type="text" name="email" id="" placeholder="Email" style="width: 100%" value="{{ $user->email??'' }}" readonly>   
     </div>
     @if ($errors->has('email'))
                 <span class="error-mess">* {{ $errors->first('email') }}</span>
     @endif
     <div class="form-group">
         <p>Địa chỉ</p>
-        <input type="text" name="address" id="" placeholder="Address" value="{{ $user->address??'' }}" readonly>   
+        <input type="text" name="address" id="" placeholder="Address" style="width: 100%" value="{{ $user->address??'' }}" readonly>   
     </div>
     <div class="form-group">
         <p>Số điện thoại</p>
-        <input type="text" name="phone_number" id="" placeholder="Phone Number" value="{{ $user->phone_number??'' }}" readonly>   
+        <input type="text" name="phone_number" id="" placeholder="Phone Number" style="width: 100%" value="{{ $user->phone_number??'' }}" readonly>   
     </div>
     {{-- <button onclick="goback()" class="mt-2 btn btn-primary block full-width m-b center-block">Trở lại</button> --}}
     <button type="submit" class="mt-2 btn btn-danger block full-width m-b center-block"> Xoá thông tin người dùng</button>
