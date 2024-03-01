@@ -3,7 +3,7 @@
     Products
 @endsection
 @section('main')
-    <div style="padding-top: 60px">
+    <div style="margin-top: 60px">
     @yield('product.main')
     </div>
 @endsection

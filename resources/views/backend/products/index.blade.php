@@ -1,5 +1,11 @@
 @extends('backend.products.bg')
 @section('product.main')
+<style>
+    .box{
+        margin: 20px;
+        width: 20rem;
+    }
+</style>
 <div class="ibox-content ">
     <label for=""><h3>Danh sách sản phẩm</h3></label>   
     {{-- Các chức năng --}}
@@ -19,14 +25,14 @@
     </nav>
 </div>
 {{-- Danh sách sản phẩm --}}
-<div class="row -mt-5" style="padding-top: 20px">
+<div class="row -mt-5" style="margin-top: 20px">
     @foreach ($products as $item)
-    <div class="card text-lg-center" style="width: 18rem;">
+    <div class="card text-lg-center box">
         <a href="{{ route('product.review',$item->id) }}">
             <img src="{{ $item->hinh_sp}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text text-dark">{{ $item->ten_sp }}</p>
-                <p class="card-text text-dark">{{ $item->gia_sp }} VND</p>
+            <div class="card-body" >
+                <p class="text-dark text-color">{{ $item->ten_sp }}</p>
+                <h5>{{ $item->gia_sp }} VND</h5>
             </div>
         </a>
     </div>

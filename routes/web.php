@@ -111,3 +111,5 @@ Route::post('/admin/sign', [AuthController::class,'signin'])->name('auth.signin'
 Route::get('product/index',[ProductsController::class,'index'])->name('product.index')->middleware(AuthMiddleware::class);
 
 Route::get('product/review/{id}',[ProductsController::class,'review'])->name('product.review')->middleware(AuthMiddleware::class);
+
+Route::get('product/pay/{id}',[ProductsController::class,'pay'])->name('product.pay')->middleware(AuthMiddleware::class);

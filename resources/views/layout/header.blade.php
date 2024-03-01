@@ -18,10 +18,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('home') }}">
-            <i class="fas fa-home"></i>  Home</a>
+            <i class="fas fa-home"></i>  HOME</a>
         </li>
       
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Data
           </a>
@@ -31,11 +31,26 @@
             <li><a class="dropdown-item" href="{{ route('acticle') }}">Article</a></li>
 
           </ul>
+        </li> --}}
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('item') }}">
+          <li class="fa fa-book martop"></li>PREVIEW</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('user.index') }}">
+          <li class="fas fa-user martop"></li>USER</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('product.index') }}">
+          <li class="fas fa-product-hunt martop"></li>PRODUCT</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Actor
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          MORE
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{ route('iu') }}">IU</a></li>
@@ -43,22 +58,6 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="https://www.facebook.com/duongxo37">Something else here</a></li>
           </ul>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('item') }}">
-          <li class="fa fa-book martop"></li>Preview</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('user.index') }}">
-          <li class="fas fa-user martop"></li>User</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('product.index') }}">
-          <li class="fas fa-product-hunt martop"></li>Products</a>
         </li>
 
       {{-- <button type="button" class="btn btn-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
@@ -80,7 +79,7 @@
         <button type="submit" class="btn btn-primary block full-width m-b mt-2">Logout</button>
       </form> --}}
       <a href="{{ route('auth.logout') }}" class="text-black-50">
-      <i class="fas fa-sign-out">Log out</i>
+      <i class="fas fa-sign-out">LOG OUT</i>
       </a>
 
     </div>
