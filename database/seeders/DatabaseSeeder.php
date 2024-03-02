@@ -23,15 +23,15 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $faker = Faker::create();
-        // for ($i=0; $i < 500 ; $i++) { 
-        // User::create([
-        //     'name'      =>$faker->name(),
-        //     'email'     =>$faker->unique()->safeEmail(),
-        //     'address'   =>$faker->address(),
-        //     'phone_number'=>$faker->phoneNumber(10),
-        //     'password'  =>Hash::make('pasword')
-        // ]);
-        // }
+        for ($i=0; $i < 500 ; $i++) { 
+        User::create([
+            'name'      =>$faker->name(),
+            'email'     =>$faker->unique()->safeEmail(),
+            'address'   =>$faker->address(),
+            'phone_number'=>$faker->phoneNumber(10),
+            'password'  =>Hash::make('password')
+        ]);
+        }
         User::create([
             'name'      =>'Duong Viet',
             'email'     =>'duongviet@gmail.com',

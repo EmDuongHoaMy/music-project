@@ -17,10 +17,10 @@ class ProductsTableSeeder extends Seeder
         $faker = Faker::create();
         for ($i=0; $i<50; $i++) { 
             Products :: create([
-                'ten_sp'    =>$faker->sentence(2||3,true),
+                'ten_sp'    =>$faker->sentence(2,3),
                 'gia_sp'    =>30000,
                 'sluong'    =>10,
-                'mo_ta'      =>$faker->paragraph(2||3,true),
+                'mo_ta'      =>$faker->paragraph(23,true),
                 'hinh_sp'   =>$faker->imageUrl(500,500,'shirt',true),
                 'ngay_sx'   =>$faker->dateTime()
             ]);

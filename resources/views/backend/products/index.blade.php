@@ -25,14 +25,17 @@
     </nav>
 </div>
 {{-- Danh sách sản phẩm --}}
-<div class="row -mt-5" style="margin-top: 20px">
+<div class="row -mt-5" style="margin-top:20px;padding-left:20px">
     @foreach ($products as $item)
     <div class="card text-lg-center box">
         <a href="{{ route('product.review',$item->id) }}">
             <img src="{{ $item->hinh_sp}}" class="card-img-top" alt="...">
             <div class="card-body" >
                 <p class="text-dark text-color">{{ $item->ten_sp }}</p>
-                <h5>{{ $item->gia_sp }} VND</h5>
+                @php
+                    $formated_number = number_format($item->gia_sp,0,',',',');
+                @endphp
+                <h5>{{ $formated_number }} VND</h5>
             </div>
         </a>
     </div>

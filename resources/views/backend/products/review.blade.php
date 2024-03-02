@@ -9,7 +9,7 @@
 
     .box_1{
         width:92rem;
-        height:40.5rem;
+        height:40rem;
         /* background-color: aquamarine; */
     }
 
@@ -42,36 +42,51 @@
         border-bottom:2px solid gray;
         padding-left: 10%; 
         padding-right: 10%; 
-}
+
+    }
+
+    .note{
+        text-align:center;
+        width:100%;
+        height:5%;
+    }
 </style>
+
+{{-- Note:lưu ý --}}
+<div class="note bg-danger text-center">
+    <p style="font-size:20px;">Miễn phí ship cho đơn hàng có 2 sản phẩm trở lên</p>
+</div>
 {{-- khu vực 1 --}}
 <div class="box_1 d-flex">
     {{-- khu vực 1.1 : hiển thị ảnh sản phẩm --}}
     <div class="box1_1">
-        <img src="{{ $products->hinh_sp }}" alt="">
+        <img src="{{ $products->hinh_sp }}" alt="" style="width:100%;height:100%;">
     </div>
 
     {{-- khu vực 1.2 : hiển thị form mua hàng --}}
     <div class="box_1_2">
-        {{-- khu vực 1.2.1 : hiển thị thôgn tin sản phẩm --}}
+        {{-- khu vực 1.2.1 : hiển thị thông tin sản phẩm --}}
         <div class="box_1_2_1">
             <p style="font-size:40px">{{ $products->ten_sp }}</p>
-            <p class="lead text-danger">{{ $products->gia_sp }} VND</p>
+            @php
+                $formattedValue = number_format($products->gia_sp,0,',', ',');
+            @endphp
+            <p class="lead text-danger" style="font-size:40px">{{ $formattedValue }} VND</p>
             <form action="{{ route('product.pay',$products->id) }}" style="font-size:20px">
                 <div class="mt-3">
                     <label for="lang-select">Size:</label>
                     <select name="size" id="lang-select">
                         <option value="">--Hãy chọn kích thước của bạn--</option>
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                        <option value="xxl">XXL</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
                     </select>
                 </div>
                 <div class="mt-3 d-flex">
                     <label for="count">Số lượng : </label>
-                    <input type="number" name="count" id="count" value="0" min="0" max="10" width="10px">
+                    <input type="number" name="so_luong" id="count" value="1" min="0" max="20" width="10px">
                 </div >
 
                 <div class="mt-3" style="width:100%;height:50px;">
@@ -117,7 +132,10 @@
                 <img src="{{ $item->hinh_sp}}" class="card-img-top" alt="...">
                 <div class="card-body" >
                     <p class="text-dark text-color">{{ $item->ten_sp }}</p>
-                    <h5>{{ $item->gia_sp }} VND</h5>
+                    @php
+                    $formated_number = number_format($item->gia_sp,0,',',',');
+                    @endphp
+                    <h5>{{ $formated_number }} VND</h5>
                 </div>
             </a>
         </div>

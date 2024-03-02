@@ -4,6 +4,6 @@
 @endsection
 @section('main')
     <div style="margin-top: 60px">
-    @yield('product.main')
+        @yield('product.main')
     </div>
 @endsection
