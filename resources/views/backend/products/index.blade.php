@@ -14,13 +14,13 @@
             {{-- form tìm kiếm --}}
             <li class="nav-item me-2">
                 <form class="d-flex" role="search" action="{{ route('product.index') }}">
-                    <input class="form-control " type="search" name="keyword" value="{{ $request->input('keyword') ?? old('keyword') }}" placeholder="Nhập từ khoá muốn tìm kiếm" aria-label="Search">
+                    <input class="form-control " type="search" name="keyword" value="{{ $request->input('keyword') ?? old('keyword') }}" placeholder="Nhập từ khoá muốn tìm kiếm" aria-label="Search"style="width: 250px">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                   </form>
             </li>
-            <li class="nav-item ">
+            {{-- <li class="nav-item ">
                 <a href="#addModal" class="btn btn-success bg-danger" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa fa-plus"></i>Thêm mới</a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
 </div>

@@ -48,6 +48,11 @@
           <li class="fas fa-product-hunt martop"></li>PRODUCT</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('bill.index') }}">
+          <li class="fas fa-bookmark martop"></li>BILL</a>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           MORE

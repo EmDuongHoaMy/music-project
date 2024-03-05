@@ -14,6 +14,7 @@ use App\Http\Middleware\LoginMiddleware;
 use App\Http\Middleware\SignMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\BillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,3 +114,13 @@ Route::get('product/index',[ProductsController::class,'index'])->name('product.i
 Route::get('product/review/{id}',[ProductsController::class,'review'])->name('product.review')->middleware(AuthMiddleware::class);
 
 Route::get('product/pay/{id}',[ProductsController::class,'pay'])->name('product.pay')->middleware(AuthMiddleware::class);
+
+Route::post('bill/add/{id}',[
+    BillController::class,
+    'add'
+])->name('bill.add')->middleware(AuthMiddleware::class);
+
+Route::get('/bills/index', [
+    BillController::class,
+    'index'
+])->name('bill.index')->middleware(AuthMiddleware::class);

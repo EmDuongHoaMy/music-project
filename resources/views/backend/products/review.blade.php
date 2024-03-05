@@ -83,10 +83,21 @@
                         <option value="XL">XL</option>
                         <option value="XXL">XXL</option>
                     </select>
+                    {{-- Cảnh báo nếu chưa chọn size --}}
+                    <span>
+                        @if ($errors->has('size'))
+                        <span class="text-danger">* {{ $errors->first('size') }}</span>
+                        @endif
+                    </span>
                 </div>
                 <div class="mt-3 d-flex">
                     <label for="count">Số lượng : </label>
                     <input type="number" name="so_luong" id="count" value="1" min="0" max="20" width="10px">
+                    <span>
+                        @if ($errors->has('so_luong'))
+                        <span class="text-danger">* {{ $errors->first('so_luong') }}</span>
+                        @endif
+                    </span>
                 </div >
 
                 <div class="mt-3" style="width:100%;height:50px;">
@@ -118,9 +129,11 @@
 {{-- khu vực 2 : hiển thị mô tả sản phẩm --}}
 <div class="box_2">
     <h3 style="text-align:center">Mô tả sản phẩm </h3>
-    <p style="font-size:20px">
-        {{ $products->mo_ta }}
-    </p>
+    <pre style="font-size:20px;white-space: pre-line">
+   <?php
+           echo $products->mo_ta;
+    ?>
+    </pre>
 </div>
 {{-- khu vực 3 : hiển thị thêm các sản phẩm khác --}}
 <div>

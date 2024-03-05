@@ -24,6 +24,11 @@ class AuthController extends Controller
         $validate = $request->validate([
             'email'=>'required|email',
             'password'=>'required|min:8'
+        ],[
+            'email.required' => 'Không được bỏ trống email',
+            'email.email'   =>'Định dạng email phải có dạng abc@xyz.com',
+            'password.required'=>'Không được bỏ trống mật khẩu',
+            'password.min'=>'Mật khẩu phải có tối thiểu 8 ký tự'
         ]);
 
         $credential =[

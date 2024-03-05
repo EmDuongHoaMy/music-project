@@ -28,6 +28,14 @@ class ProductsController extends Controller
     }
 
     public function pay($id,Request $request){
+        $validate = $request->validate([
+            'so_luong'=>'required',
+            'size'    =>'required'  
+        ],
+        [
+            'so_luong.required' =>'Hãy nhập số lượng mà bạn muốn',
+            'size.required'     =>'Hãy lựa chọn kích thước'
+        ]);
         $id_kh = Auth::id();
         $user = User::find($id_kh);
         $products = Products::find($id);
