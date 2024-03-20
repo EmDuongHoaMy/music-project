@@ -15,6 +15,11 @@ use App\Http\Middleware\SignMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\UserCatalogueController;
+use App\Http\Controllers\PostCatalogueController;
+use App\Http\Controllers\LocationController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -75,11 +80,6 @@ Route::get('/logout',[
     'logout'
 ])->name('auth.logout');
 
-Route::get('/user/index', [
-    UserController::class,
-    'index'
-])->name('user.index')->middleware(AuthMiddleware::class);
-
 Route::post('/user/add',[
     UserController::class,
     'add'
@@ -124,3 +124,30 @@ Route::get('/bills/index', [
     BillController::class,
     'index'
 ])->name('bill.index')->middleware(AuthMiddleware::class);
+
+Route::prefix('user')->group(function(){
+    Route::get('/index', [UserController::class,'index'])->name('user.index')->middleware(AuthMiddleware::class);
+});
+
+Route::prefix('user/catalogues')->middleware(AuthMiddleware::class)->group(function(){
+    Route::get('index',[UserCatalogueController::class,'index'])->name('usercatalogue.index');
+    Route::get('add',[UserCatalogueController::class,'add'])->name('usercatalogue.add');
+    Route::post('create',[UserCatalogueController::class,'create'])->name('usercatalogue.create');
+    Route::get('edit/{id}',[UserCatalogueController::class,'edit'])->name('usercatalogue.edit');
+    Route::post('update/{id}',[UserCatalogueController::class,'update'])->name('usercatalogue.update');
+    Route::get('delete/{id}',[UserCatalogueController::class,'delete'])->name('usercatalogue.delete');
+    Route::post('destroy/{id}',[UserCatalogueController::class,'destroy'])->name('usercatalogue.destroy');
+});
+
+Route::prefix('post/catalogues')->middleware(AuthMiddleware::class)->group(function(){
+    Route::get('index',[PostCatalogueController::class,'index'])->name('postcatalogue.index');
+    Route::get('add',[PostCatalogueController::class,'add'])->name('postcatalogue.add');
+    Route::post('create',[PostCatalogueController::class,'create'])->name('postcatalogue.create');
+    Route::get('edit/{id}',[PostCatalogueController::class,'edit'])->name('postcatalogue.edit');
+    Route::post('update/{id}',[PostCatalogueController::class,'update'])->name('postcatalogue.update');
+    Route::get('delete/{id}',[PostCatalogueController::class,'delete'])->name('postcatalogue.delete');
+    Route::post('destroy/{id}',[PostCatalogueController::class,'destroy'])->name('postcatalogue.destroy');
+});
+
+Route::get('/ajax/location/district/',[LocationController::class,'getDistrict']);
+Route::get('/ajax/location/ward/',[LocationController::class,'getWard']);

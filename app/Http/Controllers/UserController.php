@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models;
+use App\Models\Province;
 use App\Models\User;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,6 @@ class UserController extends Controller
             ->paginate(30);
         }
         return view('backend.user.index',compact('users','request'));
-
     }
     
     public function add(Request $request){
@@ -41,6 +41,7 @@ class UserController extends Controller
             'email' =>$request->input('email'),
             'address'=>$request->input('address'),
             'phone_number'=>$request->input('phone_number'),
+            'user_catalogues_id'=>2,
             'password'  =>Hash::make($request->input('password'))
         ]);
         return back()->with('success','Thêm mới thành công');
@@ -57,18 +58,18 @@ class UserController extends Controller
         //     'email' =>'required|email|unique:users',
         //     'password'=>'required|min:8|confirmed'
         // ]);
-        DB::table('users')->where('id',$id)->update([
-            'name'  =>$request->input('name'),
-            'email' =>$request->input('email'),
-            'address'=>$request->input('address'),
-            'phone_number'=>$request->input('phone_number')
-        ]);
-        // $user = User::find($id);
-        // $user->name = $request->input('name');
-        // $user->email = $request->input('email');
-        // $user->address=$request->input('address');
-        // $user->phone_number=$request->input('phone_number');
-        // $user->save();
+        // DB::table('users')->where('id',$id)->update([
+        //     'name'  =>$request->input('name'),
+        //     'email' =>$request->input('email'),
+        //     'address'=>$request->input('address'),
+        //     'phone_number'=>$request->input('phone_number')
+        // ]);
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->address=$request->input('address');
+        $user->phone_number=$request->input('phone_number');
+        $user->save();
         return redirect(route('user.index'))->with('success','Cập nhật thông tin thành công');
     }
 

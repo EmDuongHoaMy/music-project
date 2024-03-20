@@ -92,7 +92,7 @@
                 </div>
                 <div class="mt-3 d-flex">
                     <label for="count">Số lượng : </label>
-                    <input type="number" name="so_luong" id="count" value="1" min="0" max="20" width="10px">
+                    <input type="number" name="so_luong" id="count" value="1" min="1" max="20" width="10px">
                     <span>
                         @if ($errors->has('so_luong'))
                         <span class="text-danger">* {{ $errors->first('so_luong') }}</span>

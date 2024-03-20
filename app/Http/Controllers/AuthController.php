@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Province;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Repositories\Interfaces\ProvinceRepositoryInterface as ProvinceRepository;
 
 class AuthController extends Controller
-{
-    public function __construct()
+{   
+    protected $provinceRepository;
+    public function __construct(ProvinceRepository $provinceRepository)
     {
-        
+        $this->provinceRepository = $provinceRepository;
     }
 
     public function admin(){
@@ -42,16 +45,16 @@ class AuthController extends Controller
         return back()->with('error','Email hoặc mật khẩu không đúng');
     }
 
-    public function logout(Request $request)
-    {    
-    Auth::logout();
-     $request->session()->invalidate();
-     $request->session()->regenerateToken();
-     return redirect('/')->with('success','Bạn đã đăng xuất thành công');
+    public function logout(Request $request){    
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('success','Bạn đã đăng xuất thành công');
     }
 
     public function sign(Request $request) {
-        return view('backend.auth.sign');
+        $province = $this->provinceRepository->getAll();
+        return view('backend.auth.sign',compact('province'));
     }
 
     public function signin(Request $request) {
@@ -66,7 +69,8 @@ class AuthController extends Controller
             'email' =>$request->input('email'),
             'address'=>$request->input('address'),
             'phone_number'=>$request->input('phone_number'),
-            'password'  =>Hash::make($request->input('password'))
+            'password'  =>Hash::make($request->input('password')),
+            'user_catalogues_id'=>2
         ]);
         return redirect(route('auth.admin'))->with('success','Đăng ký thành công');
     }

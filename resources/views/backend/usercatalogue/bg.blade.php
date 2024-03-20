@@ -1,6 +1,6 @@
 @extends('layout.base')
 @section('title')
-    User
+    UserCatalogue
 @endsection
 @section('main')
 <style>
@@ -27,18 +27,15 @@
     .sidenav a:hover {
       color: #f1f1f1;
     }
-    .size{
-      font-size: 20px;
-    }
 
 </style>
 <div class="sidenav">
     <ul class="nav flex-column">
-      <li><a class="nav-item size" href="{{ route('usercatalogue.index') }}">QL Nhóm Thành Viên</a></li>
-      <li><a class="nav-item size" href="{{ route('user.index') }}">QL Thành Viên</a></li>
+      <li><a class="nav-item" href="{{ route('usercatalogue.index') }}">QL Nhóm Thành Viên</a></li>
+      <li><a class="nav-item" href="{{ route('user.index') }}">QL Thành Viên</a></li>    
     </ul>
 </div>
 <div style="margin-left: 180px;margin-top:80px">
-  @yield('user.main')
+  @yield('usercatalogue.main')
 </div>
 @endsection

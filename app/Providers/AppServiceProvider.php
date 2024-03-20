@@ -9,9 +9,21 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+    public $bindings = [
+        'App\Services\Interfaces\PostCatalogueServiceInterface'=>'App\Services\PostCatalogueService',
+        'App\Repositories\Interfaces\PostCatalogueRepositoryInterface'=>'App\Repositories\PostCatalogueRepository',
+        'App\Repositories\Interfaces\ProvinceRepositoryInterface'=>'App\Repositories\ProvinceRepository',
+        'App\Repositories\Interfaces\DistrictRepositoryInterface'=>'App\Repositories\DistrictRepository',
+        'App\Repositories\Interfaces\WardRepositoryInterface'=>'App\Repositories\WardRepository'
+
+
+    ];
+
     public function register(): void
     {
-        //
+        foreach ($this->bindings as $key =>$val){
+            $this->app->bind($key,$val);
+        }
     }
 
     /**

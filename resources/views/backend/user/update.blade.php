@@ -29,6 +29,8 @@
     <button type="submit" class="mt-2 btn btn-primary block full-width m-b center-block">Hoàn tất</button>
     {{-- <a href="javascript:history.back()">Quay lại</a> --}}
 </form>
+<button onclick="goback()" class="mt-2 btn btn-primary block full-width m-b center-block">Trở lại</button>
+
 @endsection
 {{-- Script back lại trang trước --}}
 <script>

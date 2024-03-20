@@ -47,6 +47,10 @@
           <a class="nav-link active" aria-current="page" href="{{ route('product.index') }}">
           <li class="fas fa-product-hunt martop"></li>PRODUCT</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('postcatalogue.index') }}">
+          <li class="fas fa-paragraph martop"></li>POSTCATALOGUE</a>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('bill.index') }}">
